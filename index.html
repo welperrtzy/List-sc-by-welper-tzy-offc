@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC Welper-TZY</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('https://files.catbox.moe/na0in6.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .container {
+        padding: 20px;
+        max-width: 500px;
+        margin: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .logo {
+        width: 150px;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 28px;
+        text-shadow: 2px 2px 5px black;
+        margin: 5px 0;
+    }
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 3px black;
+    }
+    .button-list {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+    .sc-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255,255,255,0.1);
+        border-radius: 30px;
+        padding: 10px 20px;
+        margin: 10px auto;
+        width: 90%;
+        backdrop-filter: blur(5px);
+    }
+    .sc-name {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+    .install-btn {
+        background: linear-gradient(to right, #000000, #00ff66);
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    .install-btn:hover {
+        background: linear-gradient(to right, #00ff66, #000000);
+    }
+    /* Popup Password */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        justify-content: center;
+        align-items: center;
+    }
+    .popup-content {
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+    }
+    .popup h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .popup input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 20px;
+        border: none;
+        text-align: center;
+    }
+    .popup button {
+        background: white;
+        color: black;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+    }
+    .popup button:hover {
+        background: gray;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALL REVIEW LINK SC BY WELPER-TZY</h1>
+        <img src="https://files.catbox.moe/s6oorp.png" alt="Logo" class="logo">
+        <h1>WELCOME TO</h1>
+        <div class="subtitle">Silahkan Install SC nya dan pakai, tapi jangan lupa SUBSCRIBE!</div>
+
+        <div class="button-list" id="scList"></div>
+    </div>
+
+    <!-- Popup Password -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2 id="popupTitle">Masukkan Password</h2>
+            <input type="text" id="pwInput" placeholder="Masukkan PW di sini">
+            <br>
+            <button onclick="checkPW()">LANJUT INSTALL</button>
+        </div>
+    </div>
+
+<script>
+    // Data SC - Bisa diubah password & link-nya
+    const data = [
+        { name: "sc SyafiraaMD", pw: "09746", link: "https://www.mediafire.com/file/dvg79gl9fa3z6an/SyafiraaMD%25F0%259F%259A%2580.zip/file" },
+        // Tambah sampai 50 SC
+    ];
+
+    const scList = document.getElementById('scList');
+    const popup = document.getElementById('popup');
+    let currentPW = "";
+    let currentLink = "";
+
+    data.forEach(item => {
+        const row = document.createElement('div');
+        row.classList.add('sc-row');
+
+        const name = document.createElement('div');
+        name.classList.add('sc-name');
+        name.textContent = item.name;
+
+        const btn = document.createElement('button');
+        btn.classList.add('install-btn');
+        btn.textContent = 'INSTALL';
+        btn.onclick = () => {
+            currentPW = item.pw;
+            currentLink = item.link;
+            document.getElementById('popupTitle').textContent = `Password untuk ${item.name}`;
+            document.getElementById('pwInput').value = "";
+            popup.style.display = 'flex';
+        };
+
+        row.appendChild(name);
+        row.appendChild(btn);
+        scList.appendChild(row);
+    });
+
+    function checkPW() {
+        const input = document.getElementById('pwInput').value.trim();
+        if (input === currentPW) {
+            window.location.href = currentLink;
+        } else {
+            alert('Password salah!');
+        }
+    }
+
+    // Tutup popup jika klik luar
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>
