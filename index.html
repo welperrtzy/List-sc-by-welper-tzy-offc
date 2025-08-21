@@ -10,7 +10,7 @@
     body {
         margin: 0;
         padding: 0;
-        background: url('https://files.catbox.moe/na0in6.jpg') no-repeat center center fixed;
+        background: url('https://files.catbox.moe/4jz00b.jpg') no-repeat center center fixed;
         background-size: cover;
         font-family: 'Orbitron', sans-serif;
         color: white;
@@ -21,7 +21,7 @@
     }
     .container {
         padding: 20px;
-        max-width: 500px;
+        max-width: 600px;
         margin: auto;
         flex: 1;
         display: flex;
@@ -45,6 +45,7 @@
         flex: 1;
         overflow-y: auto;
         padding-right: 5px;
+        display: none; /* awalnya disembunyiin */
     }
     .sc-row {
         display: flex;
@@ -59,7 +60,7 @@
     }
     .sc-name {
         font-size: 16px;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
     }
     .install-btn {
         background: linear-gradient(to right, #000000, #00ff66);
@@ -75,6 +76,43 @@
     .install-btn:hover {
         background: linear-gradient(to right, #00ff66, #000000);
     }
+    /* Tombol awal */
+    .start-section {
+        margin-top: 30px;
+    }
+    .start-btn {
+        background: white;
+        color: black;
+        padding: 10px 25px;
+        font-size: 16px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    .start-btn:hover {
+        background: gray;
+        color: white;
+    }
+    /* Tombol saluran */
+    .channel-btn {
+        margin: 20px auto;
+        background: linear-gradient(to right, #ff0000, #660000);
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        font-size: 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: none;
+        display: block;
+        width: fit-content;
+    }
+    .channel-btn:hover {
+        background: linear-gradient(to right, #660000, #ff0000);
+    }
     /* Popup Password */
     .popup {
         display: none;
@@ -86,7 +124,7 @@
         align-items: center;
     }
     .popup-content {
-        background: rgba(0,0,0,0.9);
+        background: rgba(0,0,0,0.95);
         padding: 20px;
         border-radius: 10px;
         width: 300px;
@@ -123,9 +161,24 @@
     <div class="container">
         <h1>ALL REVIEW LINK SC BY WELPER-TZY</h1>
         <img src="https://files.catbox.moe/s6oorp.png" alt="Logo" class="logo">
-        <h1>WELCOME TO</h1>
-        <div class="subtitle">Silahkan Install SC nya dan pakai, tapi jangan lupa SUBSCRIBE!</div>
 
+        <!-- Text persis kayak di foto -->
+        <div id="introText">
+            <p style="font-weight:bold; font-size:16px; line-height:1.6; text-shadow:1px 1px 3px black;">
+                OH IYA INI WELPER LAGI ADA IN G. A SELLER PANEL BUAT 5-10<br>
+                KALO MAU KALIAN BISA MASUK KE SALURAN NYA<br>
+                KALO UDAH 1000 P BARU GASS G. A NYA
+            </p>
+        </div>
+
+        <!-- Tombol mulai -->
+        <div class="start-section" id="startSection">
+            <button class="start-btn" onclick="startPage()"> LANJUT INSTALL</button>
+            <br>
+            <a href="https://link-saluran-kamu.com" target="_blank" class="channel-btn">MASUK SALURAN</a>
+        </div>
+
+        <!-- List SC -->
         <div class="button-list" id="scList"></div>
     </div>
 
@@ -140,13 +193,13 @@
     </div>
 
 <script>
-    // Data SC - Bisa diubah password & link-nya
+    // Data SC - lengkap dengan password + link Mediafire
     const data = [
         { name: "𝐒𝐂 𝐌𝐃 𝐒𝐘𝐀𝐅𝐈𝐑𝐀𝐀𝐌𝐃", pw: "09746", link: "https://www.mediafire.com/file/dvg79gl9fa3z6an/SyafiraaMD%25F0%259F%259A%2580.zip/file" },
-           { name: "𝐒𝐂 𝐌𝐃 𝐙𝐈𝐓𝐘𝐀𝐀", pw: "65389", link: " https://www.mediafire.com/file/fnq3d7d7k47xpcl/Nahida-Multi-2025_%25283%2529.zip/file" },
-          {name: "𝐙𝐄𝐑𝐎 𝐓𝐖𝐎 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄", pw: "63539", link: " https://www.mediafire.com/file/6uu33urp0c8lk7w/ZeroTwo-MD%25F0%2593%2586%25A9_.zip/file" },
-         {name: "𝐒𝐂 𝐌𝐃 𝐓𝐄𝐑𝐀𝐊𝐎𝐌𝐀𝐑𝐈 𝐍𝐎 𝐄𝐍𝐂", pw: "72539", link: " https://www.mediafire.com/file/usvnor66no9jyfi/Terakomari_-__-_MD.zip/file" },
-        // Tambah sampai 50 SC
+        { name: "𝐒𝐂 𝐌𝐃 𝐙𝐈𝐓𝐘𝐀𝐀", pw: "65389", link: "https://www.mediafire.com/file/fnq3d7d7k47xpcl/Nahida-Multi-2025_%25283%2529.zip/file" },
+        { name: "𝐙𝐄𝐑𝐎 𝐓𝐖𝐎 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄", pw: "63539", link: "https://www.mediafire.com/file/6uu33urp0c8lk7w/ZeroTwo-MD%25F0%2593%2586%25A9_.zip/file" },
+        { name: "𝐒𝐂 𝐌𝐃 𝐓𝐄𝐑𝐀𝐊𝐎𝐌𝐀𝐑𝐈 𝐍𝐎 𝐄𝐍𝐂", pw: "72539", link: "https://www.mediafire.com/file/usvnor66no9jyfi/Terakomari_-__-_MD.zip/file" },
+        { name: "𝐒𝐂 𝐀𝐑𝐈𝐒𝐔𝐌𝐃 𝐌𝐔𝐋𝐓𝐈𝐃𝐄𝐕𝐈𝐂𝐄", pw: "624390", link: "https://www.mediafire.com/file/sozn1el092ivkx1/ArisuMD_MultiDevice.zip/file" }
     ];
 
     const scList = document.getElementById('scList');
@@ -154,6 +207,7 @@
     let currentPW = "";
     let currentLink = "";
 
+    // generate tombol SC
     data.forEach(item => {
         const row = document.createElement('div');
         row.classList.add('sc-row');
@@ -187,12 +241,19 @@
         }
     }
 
-    // Tutup popup jika klik luar
+    // Tutup popup kalau klik di luar
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             popup.style.display = 'none';
         }
     });
+
+    // Fungsi tombol LANJUT
+    function startPage() {
+        document.getElementById('introText').style.display = 'none';
+        document.getElementById('startSection').style.display = 'none';
+        scList.style.display = 'block';
+    }
 </script>
 </body>
 </html>
