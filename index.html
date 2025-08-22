@@ -173,9 +173,9 @@
 
         <!-- Tombol mulai -->
         <div class="start-section" id="startSection">
-            <button class="start-btn" onclick="startPage()"> LANJUT INSTALL</button>
+            <button class="start-btn" onclick="startPage()">LANJUT INSTALL</button>
             <br>
-            <a href="https://whatsapp.com/channel/0029Vb669U89xVJnlXO44c3m"target="_blank" class="channel-btn">MASUK SALURAN</a>
+            <a href="https://whatsapp.com/channel/0029Vb669U89xVJnlXO44c3m" target="_blank" class="channel-btn">MASUK SALURAN</a>
         </div>
 
         <!-- List SC -->
@@ -193,13 +193,14 @@
     </div>
 
 <script>
-    // Data SC - lengkap dengan password + link Mediafire
+    // Data SC
     const data = [
         { name: "𝐒𝐂 𝐌𝐃 𝐒𝐘𝐀𝐅𝐈𝐑𝐀𝐀𝐌𝐃", pw: "09746", link: "https://www.mediafire.com/file/dvg79gl9fa3z6an/SyafiraaMD%25F0%259F%259A%2580.zip/file" },
         { name: "𝐒𝐂 𝐌𝐃 𝐙𝐈𝐓𝐘𝐀𝐀", pw: "65389", link: "https://www.mediafire.com/file/fnq3d7d7k47xpcl/Nahida-Multi-2025_%25283%2529.zip/file" },
         { name: "𝐙𝐄𝐑𝐎 𝐓𝐖𝐎 𝐌𝐔𝐋𝐓𝐈 𝐃𝐄𝐕𝐈𝐂𝐄", pw: "63539", link: "https://www.mediafire.com/file/6uu33urp0c8lk7w/ZeroTwo-MD%25F0%2593%2586%25A9_.zip/file" },
         { name: "𝐒𝐂 𝐌𝐃 𝐓𝐄𝐑𝐀𝐊𝐎𝐌𝐀𝐑𝐈 𝐍𝐎 𝐄𝐍𝐂", pw: "72539", link: "https://www.mediafire.com/file/usvnor66no9jyfi/Terakomari_-__-_MD.zip/file" },
-        { name: "𝐒𝐂 𝐀𝐑𝐈𝐒𝐔𝐌𝐃 𝐌𝐔𝐋𝐓𝐈𝐃𝐄𝐕𝐈𝐂𝐄", pw: "624390", link: "https://www.mediafire.com/file/sozn1el092ivkx1/ArisuMD_MultiDevice.zip/file" }
+        { name: "𝐒𝐂 𝐀𝐑𝐈𝐒𝐔𝐌𝐃 𝐌𝐔𝐋𝐓𝐈𝐃𝐄𝐕𝐈𝐂𝐄", pw: "624390", link: "https://www.mediafire.com/file/sozn1el092ivkx1/ArisuMD_MultiDevice.zip/file" },
+        { name: "𝐒𝐂 𝐌𝐃 𝐘𝐎𝐈𝐌𝐈𝐘𝐀 𝐍𝐎 𝐄𝐍𝐂 𝟏𝟎𝟎%", pw: "28368", link: "https://www.mediafire.com/file/n8iqmtn68l1ln0u/YOIMIYA_V10_ALL_FIX.zip/file" }
     ];
 
     const scList = document.getElementById('scList');
@@ -207,7 +208,7 @@
     let currentPW = "";
     let currentLink = "";
 
-    // generate tombol SC
+    // Generate tombol SC
     data.forEach(item => {
         const row = document.createElement('div');
         row.classList.add('sc-row');
